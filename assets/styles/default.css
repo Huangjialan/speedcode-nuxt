@@ -1,0 +1,63 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  font-size: 12px;
+  font-family: "Microsoft YaHei","Arial",sans-serif!important;
+}
+body.dialog-open {
+  position: fixed;
+  width: 100%;
+}
+textarea {
+  font-family: "Microsoft YaHei","Arial",sans-serif;
+  font-size: 12px;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+select, input, img {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+* {
+  /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+  box-sizing: border-box;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+.border-r{
+  border-radius: 10px;
+}
+
+.shadePage{
+  width: 100%;
+  background: #ddd;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.7;
+  z-index: 99;
+}
