@@ -52,6 +52,7 @@ var _hmt = _hmt || [];
   
   import axios from 'axios'
   export default {
+    scrollToTop: true,
     async asyncData ({params,query}) {
       return axios.get(`http://47.104.73.125:81/api/article`)
       .then((res) => {
@@ -75,9 +76,7 @@ var _hmt = _hmt || [];
       BlogRoll
     },
     mounted (){
-      this.$router.afterEach((to,from,next) => {
-        window.scrollTo(0,0);
-      });
+      this.init();   //这里再加载是为了更新最热文章列表
     },
     watch: {
       "$route"() {

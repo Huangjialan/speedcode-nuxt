@@ -25,7 +25,7 @@ const filters = {
   trim,
   timeReturn
 }
-export default filters
+export default filters;
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })

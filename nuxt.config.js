@@ -15,7 +15,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-//   {src: 'https://hm.baidu.com/hm.js?33c7371447c5e73fcea8446eb44d7b8d'},/*引入百度统计的js*/
+     {src: 'https://hm.baidu.com/hm.js?33c7371447c5e73fcea8446eb44d7b8d'},/*引入百度统计的js*/
     ]
   },
   /*
@@ -26,24 +26,42 @@ module.exports = {
   ** Build configuration
   */
   build: {
-// vendor publicPath: '/nodenext/_nuxt/',
+    extractCSS: {
+      allChunks: true
+    },
     vendor: ['~/plugins/axios.js', '~/plugins/elementUI.js', '~/plugins/highLight.js'],
+  },
+  modules: [
+   '@nuxtjs/sitemap'
+  ],
+  sitemap: {
+    exclude: [
+      '/exclude'
+    ],
+    generate: true,
+    gzip: false,
+    hostname: 'http://www.speedcode.cn',
+    routes: function () {
+      return axios.get('http://47.104.73.125:81/api/article/articleids')
+      .then((res) => {
+        return res.data.map((user) => {
+          return '/ArticleDetail?id=' + user.id
+        })
+      })
+    }
   },
   plugins: [
    {src: '~/plugins/elementUI.js'},
    {src: '~/plugins/highLight.js'},
    {src: '~/plugins/filter.js'},
    {src: '~/plugins/ga.js'},
+   {src: '~/plugins/globalTitle.js'},
   ],
   css : [
     '~assets/styles/default.css',
     '~assets/styles/style.css',
   ],
-  router: {
-    middleware: 'auth'
-  }  
 //router: {
-//    base: '/nodenext/'
-//}
-//
+//  middleware: 'auth'
+//}  
 }

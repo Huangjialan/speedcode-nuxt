@@ -1,7 +1,7 @@
 {
-  "name": "y",
+  "name": "speedcode",
   "version": "1.0.0",
-  "description": "y",
+  "description": "speedcode blog web",
   "author": "Huangjialan",
   "private": true,
   "scripts": {
@@ -11,13 +11,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/sitemap": "^0.1.1",
+    "axios": "^0.16.2",
+    "element-ui": "^2.0.11",
+    "moment": "^2.18.1",
     "nuxt": "^1.0.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "axios": "^0.16.2",
-    "element-ui": "^2.0.11",
-    "vuex": "^2.4.0",
-    "moment": "^2.18.1"
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

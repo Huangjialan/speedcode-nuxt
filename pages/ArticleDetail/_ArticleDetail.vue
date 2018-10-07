@@ -3,7 +3,7 @@
     <div class="left-box">
       <div class="articleDetail border-r">
         <div>
-          <h2 class="title" v-text="articleList.title"></h2>
+          <h1 class="title" v-text="articleList.title"></h1>
           <small>{{articleList.time}} by {{articleList.author.name}} 阅读{{articleList.view}}次</small>
           <div class="articleContent" v-html="articleList.body" v-highlight></div>
         </div>
@@ -18,7 +18,6 @@
   </div>
 </template>
 <script>
-  import hljs from 'highlight.js';
   import 'highlight.js/styles/solarized-light.css' //highlight样式文件
   import axios from 'axios'
   import personNote from '@/components/ui/personNote/personNote.vue';
@@ -26,6 +25,10 @@
   import HotArticle from '@/components/ui/HotArticle/HotArticle.vue';
   import MessageBoard from '@/components/ui/MessageBoard/MessageBoard.vue';
   export default {
+    scrollToTop: true,
+    head() {
+      return this.$seo(this.articleList.title);
+    },
     async asyncData ({params,query}) {
       return axios.get(`http://47.104.73.125:81/api/article/content?id=${query.id}`)
       .then((res) => {

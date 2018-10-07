@@ -36,6 +36,7 @@
   import Category from '@/components/ui/Category/Category.vue';
   import axios from 'axios'
   export default {
+    scrollToTop: true,
     data () {
       return {
         articleList: [],
@@ -51,9 +52,6 @@
     },
     mounted (){
       this.init();
-      this.$router.afterEach((to,from,next) => {
-        window.scrollTo(0,0);
-      });
     },
     watch: {
       "$route"() {
