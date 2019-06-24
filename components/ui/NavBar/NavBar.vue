@@ -4,7 +4,7 @@
     <div class="navBar">
       <h1><img class="logo" src="../../../assets/font/153267561738953.png" alt="极速代码" @click="gotoHome" /></h1>
       <ul class="navbar-pc">
-        <li v-for="(nav,index) in navList" :class="{'isalive':index===navindex}" @click="toNav(nav.url,index)">
+        <li v-for="(nav,index) in navList" :key="index" :class="{'isalive':index===navindex}" @click="toNav(nav.url,index)">
           {{nav.name}}
         </li>
       </ul>
@@ -12,7 +12,7 @@
       <transition name="el-zoom-in-top">
         <div class="navbar-phone" v-show="phoneMenu">
           <ul>
-            <li v-for="(nav,index) in navList" :class="{'isalive':index===navindex}" @click="toNav(nav.url,index)">
+            <li v-for="(nav,index) in navList" :key="index" :class="{'isalive':index===navindex}" @click="toNav(nav.url,index)">
               {{nav.name}}
             </li>
           </ul>
@@ -37,6 +37,10 @@
           {
             name: "技术文档",
             url: "/ArticleList/ArticleList"
+          },
+          {
+            name: "游乐场",
+            url: "http://h5game.speedcode.cn"
           },
           {
             name: "留言板",
@@ -90,9 +94,13 @@
         this.phoneMenu = !this.phoneMenu;
       },
       toNav(url, index) {
-        this.navindex = index;
-        this.$router.push(url);
-        this.phoneMenu = false;
+        if (url === "http://h5game.speedcode.cn") {
+          window.open("http://h5game.speedcode.cn");
+        } else {
+          this.navindex = index;
+          this.$router.push(url);
+          this.phoneMenu = false;
+        }
       },
       gotoHome(id) {
         this.$router.push({

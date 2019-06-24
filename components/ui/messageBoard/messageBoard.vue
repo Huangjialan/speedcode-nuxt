@@ -10,7 +10,7 @@
         <i @click="setFACE" class="iconfont">&#xe659;</i>
         <i @click="setREFER" class="iconfont">&#xe65d;</i>
         <ul v-show="showFACE" class="qqbq">
-          <li v-for="i in qqbq" ><img @click="inpFACE(i)" :src="'/img/qqbq/'+(i)+'.gif'" /></li>
+          <li v-for="(i,index) in qqbq" :key="index" ><img @click="inpFACE(i)" :src="'/img/qqbq/'+(i)+'.gif'" /></li>
         </ul>
         <i @click="setIMG" class="iconfont">&#xe791;</i>
         <i @click="setCODE" class="iconfont">&#xe6b9;</i>
@@ -19,7 +19,7 @@
     </div>
     <div class="leave-content">
       <ul class="fl">
-        <li v-for="vo in messageList">
+        <li v-for="(vo,index) in messageList" :key="index">
           <div class="fl img">
             <a :href="vo.url" target="_blank"><img src="/img/head.jpg" /></a>
           </div>
