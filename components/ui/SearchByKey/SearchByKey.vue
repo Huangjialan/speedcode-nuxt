@@ -1,6 +1,6 @@
 <template>
   <div class="search-box border-r">
-    <el-input placeholder="请输入内容" class="search-input" prefix-icon="el-icon-search" v-model="wordkey"></el-input>
+    <el-input placeholder="请输入内容" id="searchKey" class="search-input" prefix-icon="el-icon-search" @keyup.enter.native="onSubmit" v-model="wordkey"></el-input>
     <span class="search-text" @click="search">搜索</span>
   </div>
 </template>
@@ -15,6 +15,11 @@
     methods:{
       search (){
         this.$router.push({path:"/ArticleList/ArticleList",query:{wordkey:this.wordkey}});
+      },
+      onSubmit (event){
+        if(event.keyCode == 13){
+          this.search();
+        }
       }
     }
   }

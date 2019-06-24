@@ -10,3 +10,4 @@ yarn.lock
 config/index.js
 config/custom.config.js
 .vscode
+.nuxt
