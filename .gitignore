@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+.idea/
+yarn.lock
+config/index.js
+config/custom.config.js
+.vscode
