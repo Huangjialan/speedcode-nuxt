@@ -6,6 +6,10 @@
           <h1 class="title" v-text="articleList.title"></h1>
           <small>{{articleList.time}} by {{articleList.author.name}} 阅读{{articleList.view}}次</small>
           <div class="articleContent" v-html="articleList.body" v-highlight></div>
+          <div class="title-box">
+            <div class="pre_title" v-if="articleList.pre_id>0" @click="gotoPage(articleList.pre_id)">上一篇：{{articleList.pre_title}}</div>
+            <div class="next_title" v-if="articleList.next_id>0" @click="gotoPage(articleList.next_id)">下一篇：{{articleList.next_title}}</div>
+          </div>
         </div>
       </div>
       <MessageBoard :articleId="id" />
@@ -67,6 +71,9 @@
           }
         });
       },
+      gotoPage (id) {
+        this.$router.push({path:"/ArticleDetail",query:{id:id}});
+      }
     }
   }
 </script>
@@ -101,6 +108,19 @@
       }
       .pagination-box{
         text-align: center;
+      }
+      .title-box {
+        margin-bottom: 50px;
+        font-size: 16px;
+        color: #527ED1;
+      }
+      .pre_title {
+        float: left;
+        cursor: pointer;
+      }
+      .next_title {
+        float: right;
+        cursor: pointer;
       }
     }
     .right-box{
