@@ -54,7 +54,7 @@ var _hmt = _hmt || [];
   export default {
     scrollToTop: true,
     async asyncData ({params,query}) {
-      return axios.get(`http://47.104.73.125:81/api/article`)
+      return axios.get(`http://api.speedcode.cn/api/article`)
       .then((res) => {
         return {articleList : res.data.data,totalCount: res.data.count }
       })
@@ -87,7 +87,7 @@ var _hmt = _hmt || [];
     },
     methods: {
       init (){
-        axios.get(`http://47.104.73.125:81/api/article?p=${this.currentPage}&t=${this.categoryId}&k=${this.wordkey}`).then((res)=>{
+        axios.get(`http://api.speedcode.cn/api/article?p=${this.currentPage}&t=${this.categoryId}&k=${this.wordkey}`).then((res)=>{
           if (!!res) {
             this.articleList = res.data.data;
             this.totalCount = res.data.count;

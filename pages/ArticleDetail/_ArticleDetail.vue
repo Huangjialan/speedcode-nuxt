@@ -30,7 +30,7 @@
       return this.$seo(this.articleList.title);
     },
     async asyncData ({params,query}) {
-      return axios.get(`http://47.104.73.125:81/api/article/content?id=${query.id}`)
+      return axios.get(`http://api.speedcode.cn/api/article/content?id=${query.id}`)
       .then((res) => {
         return {articleList : res.data}
       })
@@ -61,7 +61,7 @@
     },
     methods: {
       init () {
-        axios.get('http://47.104.73.125:81/api/article/content?id='+this.id).then((res)=>{
+        axios.get('http://api.speedcode.cn/api/article/content?id='+this.id).then((res)=>{
           if (!!res) {
             this.articleList = res.data;
           }

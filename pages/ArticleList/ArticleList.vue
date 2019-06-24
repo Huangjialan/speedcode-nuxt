@@ -62,7 +62,7 @@
     },
     methods: {
       init (){
-        axios.get(`http://47.104.73.125:81/api/article?p=${this.currentPage}&t=${this.categoryId}&k=${this.wordkey}`).then((res)=>{
+        axios.get(`http://api.speedcode.cn/api/article?p=${this.currentPage}&t=${this.categoryId}&k=${this.wordkey}`).then((res)=>{
           if (!!res) {
             this.articleList = res.data.data;
             this.totalCount = res.data.count;

@@ -134,7 +134,7 @@
     methods: {
       init () {
         this.form = JSON.parse(localStorage.getItem('userInfo')) || this.form;
-        axios.get(`http://47.104.73.125:81/api/leave/comment.html?p=${this.currentPage}&article_id=${this.article_id}`).then((res)=>{
+        axios.get(`http://api.speedcode.cn/api/leave/comment.html?p=${this.currentPage}&article_id=${this.article_id}`).then((res)=>{
           this.page.count = res.data.count;
           this.messageList = res.data.list;
         });
@@ -294,7 +294,7 @@
           email:this.form.email,
           url:this.form.url
         };
-        axios.post('http://47.104.73.125:81/api/leave/add.html',params).then((res)=>{
+        axios.post('http://api.speedcode.cn/api/leave/add.html',params).then((res)=>{
           if(res.data.code == 1) {
             this.clearInfo();
             self.pid = 0;

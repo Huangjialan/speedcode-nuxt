@@ -42,7 +42,7 @@ module.exports = {
     gzip: false,
     hostname: 'http://www.speedcode.cn',
     routes: function () {
-      return axios.get('http://47.104.73.125:81/api/article/articleids')
+      return axios.get('http://api.speedcode.cn/api/article/articleids')
       .then((res) => {
         return res.data.map((user) => {
           return '/ArticleDetail?id=' + user.id

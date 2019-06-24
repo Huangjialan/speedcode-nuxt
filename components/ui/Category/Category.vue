@@ -20,7 +20,7 @@
     },
     methods: {
       init (){
-        axios.get('http://47.104.73.125:81/api/article/category').then((res)=>{
+        axios.get('http://api.speedcode.cn/api/article/category').then((res)=>{
           this.categoryList = res.data;
         })
       },
