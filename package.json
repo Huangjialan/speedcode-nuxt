@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^0.1.1",
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "element-ui": "^2.0.11",
     "moment": "^2.18.1",
     "nuxt": "^1.0.0",
